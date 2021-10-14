@@ -1,18 +1,24 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Popup_Page extends Basic_Page{
 	
 	
 	
+	public Popup_Page(WebDriver chrome) {
+		super(chrome);
+	}
+
 	public WebElement getSelectLocation() {
 		return this.driver.findElement(By.className("location-selector"));
 	}
 	
 	public WebElement getCloseSelectLocation() {
-		return this.driver.findElement(By.className("close-btn close-btn-white"));
+		return this.driver.findElement(By.xpath("/*[@class='close-btn close-btn-white']"));
 	}
 	
 	public WebElement getKeyword() {
@@ -43,7 +49,9 @@ public class Popup_Page extends Basic_Page{
 	}
 	
 	public void closeSelectLocation() {
-		getCloseSelectLocation().click();
+		WebElement x = getCloseSelectLocation();
+		js.executeScript("arguments[0].click()", x);
+//		getCloseSelectLocation().click();
 	}
 
 }

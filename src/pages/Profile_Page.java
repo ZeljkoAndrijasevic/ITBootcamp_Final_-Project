@@ -1,11 +1,17 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class Profile_Page extends Basic_Page{
 	
+	public Profile_Page(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
 	public WebElement getFirstName() {
 		return this.driver.findElement(By.name("user_first_name"));
 	}
